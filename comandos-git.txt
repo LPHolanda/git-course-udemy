@@ -1,0 +1,70 @@
+vi Readme.md -> abrir arquivo de texto
+
+i -> inserir texto
+esc -> parar de inserir texto
+
+:w -> salvar
+:q -> sair
+:q! -> forçar a sair sem salvar
+:wp -> salvar e sair
+
+git status
+git add
+
+arquivos novos são untracked (não visto pelo git) até que vc de um git add no arquivo para ele ser visível ao git e poder ser commitado. se o arquivo for alterado, precisa ser add na stage do mesmo jeito usando git add.
+
+git commit -m "mensagem"
+
+-m -> dizer que vai passar uma msg
+-am -> comita todos os arquivos alterados + msg
+
+untracked não foi visto pelo git 
+unmodified não teve modificação
+modified foi modificado mas não foi levado pra ser salvo
+staged está pronto pra ser comitado
+
+
+git log
+git log --decorate
+git log --author="lpholanda"
+git shortlog
+git shortlog -sn -> quais autores, em ordem alfabética e qtos comits fizeram
+
+
+git diff -> mostra qual foi a mudança no arquivo
+git diff --name-only -> mostra só o nome do arquivo alterado
+
+git show 3ce334c4b9bcfd89ecc096382f726888316063fc -> mostra a mudança nesse commit
+
+
+git checkout readme.md -> retira a última alteração feita no arquivo untracked
+git reset HEAD readme.md -> retira o arquivo staged para voltar a altera-lo
+git reset --soft --mixed --hard
+--soft -> mata o comit mas o arquivo ta em staged pra ser comitado dnovo
+--mixed -> mata o comit mas volta o arquivo pra antes do stage (modified)
+--hard -> ignora a existência do comit e tudo que foi feito nele
+
+
+cd ~/.ssh/
+cat id_rsa.pub
+
+git checkout -b branchName -> criando nova branch
+git branch -> mostra as branchs existentes e a atual sinalizada com um *
+git checkout master -> muda para a branch master
+git branch -D newBranch -> deleta a branch newBranch
+
+
+git stash -> coloca arquivo que esta usando em espera para altera-lo dps
+
+git config --global alias.s status -> configura para que o comando status seja reconhecido somente digitando s
+git config --global alias.x status -> configura para que o comando status seja reconhecido somente digitando x
+
+git tag -a 1.0.0 -m "mensagem" -> cria uma tag (release) para controle de versionamento
+
+git push origin master --tags -> para dar push nas tags criadas
+
+git revert 3ce334c4b9bcfd89ecc096382f726888316063fc -> apaga a alteração feita sem sumir com o commit para que ela saia da ultima versão mas não seja apagada para ser alterada dps
+
+
+git tag -d 1.0.0 -> para apagar a tag 1.0.0 do repositório local
+git push origin: 1.0.0 -> para apagar a tag 1.0.0 do repositório remoto
